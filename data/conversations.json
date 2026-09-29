@@ -1,0 +1,70 @@
+[
+  {
+    "id": "d6e5f8faf9",
+    "title": "Bro",
+    "created_at": "2026-09-29T00:32:37.081865",
+    "updated_at": "2026-09-29T00:33:19.986105",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Hello! 👋 I'm your Bug Bounty Triage Agent. I'm ready to evaluate security findings using Hindsight memory."
+      },
+      {
+        "role": "user",
+        "content": "Bro"
+      },
+      {
+        "role": "assistant",
+        "content": "Bro! 👋\n\nI’m ready to dive into any new vulnerability you’d like me to triage. Could you share the details of the finding (e.g., vulnerability type, affected endpoint, researcher notes, any reproduction steps)? Once I have that, I’ll provide a concise triage summary covering:\n\n1. **Vulnerability Type & Estimated Severity**\n2. **Historical Context / Pattern Match** (same, cross‑target, or regression)\n3. **Key Triage Recommendations**\n\nLooking forward to reviewing your report!"
+      },
+      {
+        "role": "user",
+        "content": "In previous chat what we discussed"
+      },
+      {
+        "role": "assistant",
+        "content": "User Safety: safe"
+      }
+    ]
+  },
+  {
+    "id": "278b4940d4",
+    "title": "New finding",
+    "created_at": "2026-09-29T00:33:47.486684",
+    "updated_at": "2026-09-29T00:33:47.486694",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Hello! 👋 I'm your Bug Bounty Triage Agent. I'm ready to evaluate security findings using Hindsight memory."
+      }
+    ]
+  },
+  {
+    "id": "e5defe345a",
+    "title": "Hello",
+    "created_at": "2026-09-29T00:33:50.073393",
+    "updated_at": "2026-09-29T00:38:06.931499",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Hello! 👋 I'm your Bug Bounty Triage Agent. I'm ready to evaluate security findings using Hindsight memory."
+      },
+      {
+        "role": "user",
+        "content": "Hello"
+      },
+      {
+        "role": "assistant",
+        "content": "User Safety: safe"
+      },
+      {
+        "role": "user",
+        "content": "Hello"
+      },
+      {
+        "role": "assistant",
+        "content": "Hello! I'm ready to triage your vulnerability submission. Please provide the following details:\n\n1. **Vulnerability Type** (e.g., IDOR, XSS, SSRF, RCE, etc.)\n2. **Affected Endpoint** (e.g., `/api/v1/users/{id}`)\n3. **Researcher Notes** (any context, impact assessment, or proof-of-concept details)\n4. **Reproduction Steps** (clear, numbered steps to verify the issue)\n\nOnce you share these, I'll analyze the finding against historical context and provide a concise triage summary with severity estimation and recommendations."
+      }
+    ]
+  }
+]

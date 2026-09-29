@@ -1,11 +1,15 @@
 import os
+import time
 import hindsight_client
-from google import genai
+from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
 
-gemini = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+openrouter = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=os.getenv("OPENROUTER_API_KEY")
+)
 hindsight = hindsight_client.Hindsight(base_url="https://api.hindsight.vectorize.io", 
     api_key=os.getenv("HINDSIGHT_API_KEY")
 )
@@ -53,13 +57,24 @@ State the relationship only when supported by the historical evidence.
 3. Key Triage Recommendations
 """
 
-    response = gemini.models.generate_content(
-        model="gemini-3.8-flash",
-        contents=vulnerability_description,
-        config={"system_instruction": system_instruction}
-    )
+    try:
+        response = openrouter.chat.completions.create(
+            model="openrouter/free",
+            messages=[
+                {"role": "system", "content": system_instruction},
+                {"role": "user", "content": vulnerability_description}
+            ]
+        )
 
-    agent_output = response.text
+        agent_output = response.choices[0].message.content
+
+        if not agent_output or not agent_output.strip():
+            return "⚠️ The AI returned an empty response. Please try again."
+
+    except Exception as e:
+        print(f"OpenRouter error: {e}")
+        return "⚠️ The AI service is temporarily unavailable. Please try again."
+
 
     try:
         hindsight.retain(
@@ -71,6 +86,10 @@ State the relationship only when supported by the historical evidence.
         )
     except Exception as e:
         print(f"Hindsight retain note: {e}")
+
+    if memories:
+        agent_output += "\n\n--- 🧠 HINDSIGHT MEMORY USED ---\n"
+        agent_output += memory_context
 
     return agent_output
 

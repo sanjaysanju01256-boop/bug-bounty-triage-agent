@@ -2,3 +2,6 @@ google-genai
 hindsight-client
 python-dotenv
 streamlit
+
+
+openai
