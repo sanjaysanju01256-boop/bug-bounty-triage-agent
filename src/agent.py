@@ -1,6 +1,6 @@
 import os
 import time
-import hindsight_client
+from hindsight_client import Hindsight
 from openai import OpenAI
 from dotenv import load_dotenv
 
