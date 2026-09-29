@@ -95,7 +95,7 @@ State the relationship only when supported by the historical evidence.
 
     except Exception as e:
         print(f"OpenRouter error: {e}")
-        return "⚠️ The AI service is temporarily unavailable. Please try again."
+        return f"⚠️ OpenRouter error: {type(e).__name__}: {str(e)[:200]}"
 
 
     try:
