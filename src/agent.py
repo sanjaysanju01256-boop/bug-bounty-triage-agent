@@ -41,6 +41,7 @@ assign severity, identify cross-target patterns, and adapt to
 researcher preferences over time.
 
 --- HISTORICAL HINDSIGHT MEMORY CONTEXT ---
+
 {memory_context}
 ------------------------------------------
 
@@ -52,9 +53,18 @@ Before the triage summary, analyze the historical Hindsight context and identify
 
 State the relationship only when supported by the historical evidence.
 
-1. Vunerability Type & Estimated Severity
-2. Historical Context / Pattern Match
-3. Key Triage Recommendations
+
+1. Vulnerability Type & Estimated Severity
+2. OWASP Top 10 Category — choose the most appropriate category ONLY from:
+   - A01 — Broken Access Control
+   - A03 — Injection
+   - A04 — Insecure Design
+   - A05 — Security Misconfiguration
+   - A07 — Identification & Authentication Failures
+   - A10 — SSRF
+   If none clearly applies, state "Not one of the six configured categories."
+3. Historical Context / Pattern Match
+4. Key Triage Recommendations
 """
 
     try:
