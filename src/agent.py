@@ -6,15 +6,26 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+def get_config(name):
+    value = os.getenv(name)
+    if value:
+        return value
+    try:
+        import streamlit as st
+        return st.secrets.get(name)
+    except Exception:
+        return None
+
 openrouter = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key=os.getenv("OPENROUTER_API_KEY")
-)
-hindsight = hindsight_client.Hindsight(base_url="https://api.hindsight.vectorize.io", 
-    api_key=os.getenv("HINDSIGHT_API_KEY")
+    api_key=get_config("OPENROUTER_API_KEY")
 )
 
-BANK_ID = os.getenv("HINDSIGHT_BANK_ID", "bug-bounty-triage")
+hindsight = hindsight_client.HindsightClient(
+    api_key=get_config("HINDSIGHT_API_KEY")
+)
+
+BANK_ID = get_config("HINDSIGHT_BANK_ID") or "bug-bounty-triage"
 
 
 def triage_vulnerability(vulnerability_description: str) -> str:
