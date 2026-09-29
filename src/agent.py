@@ -22,6 +22,7 @@ openrouter = OpenAI(
 )
 
 hindsight = Hindsight(
+    base_url="https://api.hindsight.vectorize.io",
     api_key=get_config("HINDSIGHT_API_KEY")
 )
 
