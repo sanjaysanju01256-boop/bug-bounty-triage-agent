@@ -21,7 +21,7 @@ openrouter = OpenAI(
     api_key=get_config("OPENROUTER_API_KEY")
 )
 
-hindsight = hindsight_client.HindsightClient(
+hindsight = Hindsight(
     api_key=get_config("HINDSIGHT_API_KEY")
 )
 
